@@ -22,4 +22,14 @@ class Contract extends Model
     {
         return $this->hasMany(Company::class, 'buyer_id');
     }
+
+    /**
+     * Get the associated user account
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

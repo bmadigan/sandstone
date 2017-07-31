@@ -17,7 +17,7 @@ class CreateShipmentsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->index();
             $table->unsignedInteger('contract_id')->index();
-            $table->string('transporation_type');
+            $table->string('transportation_type');
             $table->string('po_number')->nullable();
             $table->integer('weight_loaded')->nullable();
             $table->string('weight_measurement')->nullable();

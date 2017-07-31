@@ -26,4 +26,44 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get companies for the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function companies()
+    {
+        return $this->hasMany(Company::class);
+    }
+
+    /**
+     * Get the contracts for the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function contracts()
+    {
+        return $this->hasMany(Contract::class);
+    }
+
+    /**
+     * Get the shipments for the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function shipments()
+    {
+        return $this->hasMany(Shipment::class);
+    }
+
+    /**
+     * Get the products for the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
