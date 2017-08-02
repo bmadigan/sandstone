@@ -15,9 +15,9 @@ class CompaniesTableSeeder extends Seeder
 
         $users->map(function($user) {
             // Create associated Companies with Contracts
-            $companies = factory(App\Models\Company::class, rand(10, 50))->create(['user_id' => $user->id]);
+            $companies = factory(App\Models\Company::class, rand(10, 20))->create(['user_id' => $user->id]);
             $companies->map(function($company) {
-                $contracts = factory(App\Models\Contract::class, rand(3, 25))->create([
+                $contracts = factory(App\Models\Contract::class, rand(3, 15))->create([
                     'user_id' => $company->user_id,
                     'buyer_id' => $company->id
                 ]);
@@ -32,7 +32,7 @@ class CompaniesTableSeeder extends Seeder
 
 
             // Create associated Products
-            factory(App\Models\Product::class, rand(10, 50))->create(['user_id' => $user->id]);
+            factory(App\Models\Product::class, rand(5, 20))->create(['user_id' => $user->id]);
         });
 
     }
