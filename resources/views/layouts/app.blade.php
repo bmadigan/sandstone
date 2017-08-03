@@ -15,6 +15,22 @@
 </head>
 <body>
     <div id="app">
+
+        @include('layouts.partials.header')
+
+        <div class="wrapper df">
+            @include('layouts.partials.sidebar')
+
+            <slot/>
+        </div>
+
+    </div><!--/#app-->
+
+
+
+
+
+
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
