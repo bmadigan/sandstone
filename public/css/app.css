@@ -315,11 +315,11 @@ body {
 .btn-default {
   background-color: #FFF;
   border-color: #FFF;
-  color: #66a1ee;
+  color: #e8308c;
 }
 .btn-primary {
-  background-color: #66a1ee;
-  border-color: #66a1ee;
+  background-color: #e8308c;
+  border-color: #e8308c;
   color: #FFF;
 }
 .btn-link {
@@ -339,10 +339,10 @@ body {
   margin-bottom: 2rem;
 }
 .nav-item-active a.nav-link {
-  color: #66a1ee;
+  color: #e8308c;
 }
 .nav-item-active a.nav-link > i > svg {
-  fill: #66a1ee;
+  fill: #e8308c;
 }
 .nav-link {
   display: block;
@@ -370,10 +370,10 @@ body {
   position: absolute;
 }
 .nav-link:hover {
-  color: #66a1ee;
+  color: #e8308c;
 }
 .nav-link:hover > i > svg {
-  fill: #66a1ee;
+  fill: #e8308c;
 }
 .modal {
   position: fixed;
@@ -513,7 +513,7 @@ body {
   margin-left: -1px;
 }
 .pagination > li.active > a {
-  background-color: #66a1ee;
+  background-color: #e8308c;
   color: #FFF;
 }
 .pagination > li > a {
@@ -571,7 +571,7 @@ body {
   padding: 5px;
 }
 .table > tbody > tr > td > a {
-  color: #66a1ee;
+  color: #e8308c;
 }
 .table > tbody > tr > td > i {
   display: -webkit-inline-box;
@@ -677,8 +677,8 @@ body {
   border-bottom: 3px solid transparent;
 }
 .tab-link-active {
-  color: #66a1ee;
-  border-bottom: 3px solid #66a1ee;
+  color: #e8308c;
+  border-bottom: 3px solid #e8308c;
 }
 .xbrdr {
   border: none;
@@ -735,7 +735,7 @@ body {
   border-bottom-style: solid;
 }
 .border-color-primary {
-  border-color: #66a1ee;
+  border-color: #e8308c;
 }
 .border-color-gray-1 {
   border-color: #D8D8D8;
@@ -762,7 +762,7 @@ body {
   background-color: #FFF;
 }
 .bg1 {
-  background-color: #66a1ee;
+  background-color: #e8308c;
 }
 .bgsuccess {
   background-color: #779356;
@@ -804,7 +804,7 @@ body {
   background-color: #F8F8F8;
 }
 .tc1 {
-  color: #66a1ee;
+  color: #e8308c;
 }
 .tcw {
   color: #FFF;
@@ -852,7 +852,7 @@ body {
   color: #424C55;
 }
 .bc1 {
-  border-color: #66a1ee;
+  border-color: #e8308c;
 }
 .bctrans {
   border-color: transparent;
@@ -867,7 +867,7 @@ body {
   fill: currentColor;
 }
 .f1 {
-  fill: #66a1ee;
+  fill: #e8308c;
 }
 .fsuccess {
   fill: #779356;
