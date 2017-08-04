@@ -27,10 +27,10 @@
                         <tr>
                             <td class="ph2">
                                 <a href="fw7">{{ $product->product_name }}</a>
-                                <p class="lh2 helper-text">Last Updated: <strong>{{ $product->updated_at }}</strong></p>
+                                <p class="lh2 helper-text">Last Updated: <strong>{{ displayShortDate($product->updated_at) }}</strong></p>
                             </td>
-                            <td>{{ $product->displayPrice() }}</td>
-                            <td class="right-side pr3">
+                            <td>{{ formatAsCurrency($product->price) }}</td>
+                            <td>
                                 <a href=""><i class="fa fa-pencil-square mr1" aria-hidden="true"></i></a>
                                 <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
