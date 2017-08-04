@@ -1182,11 +1182,20 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+.pr1 {
+  padding-right: 1rem;
+}
+.pr2 {
+  padding-right: 2rem;
+}
 .pr3 {
   padding-right: 3rem;
 }
 .uppercase {
   text-transform: uppercase;
+}
+.right-side {
+  text-align: right;
 }
 .sans {
   font-family: Lato;

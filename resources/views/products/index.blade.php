@@ -30,7 +30,7 @@
                                 <p class="lh2 helper-text">Last Updated: <strong>{{ $product->updated_at }}</strong></p>
                             </td>
                             <td>{{ $product->displayPrice() }}</td>
-                            <td>
+                            <td class="right-side pr3">
                                 <a href=""><i class="fa fa-pencil-square mr1" aria-hidden="true"></i></a>
                                 <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
