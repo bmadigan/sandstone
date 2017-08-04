@@ -12,8 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersTableSeeder::class);
+
         // For the sake of simplicity, we are going to create just 1 seeder
-        // file that will create the rest of the seeded data
-        $this->call(CompaniesTableSeeder::class);
+        // file that will create the rest of the seeded test data
+        $this->call(SetupTableSeeder::class);
     }
 }
