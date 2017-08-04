@@ -14,35 +14,30 @@
             </div>
 
             <div class="panel-content">
-                    <table class="table" cellpadding="0" cellspacing="0">
-                        <thead>
+                <table class="table" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="pl2">Product</th>
+                        <th>Price</th>
+                        <th>Updated</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($products as $product)
                         <tr>
-                            <th class="pl2">Product</th>
-                            <th>On</th>
-                            <th>Tags</th>
-                            <th>Runtime</th>
-                            <th>Failed At</th>
-                            <th>Retry</th>
+                            <td class="ph2">
+                                <a href="fw7">{{ $product->product_name }}</a>
+                            </td>
+                            <td>{{ $product->displayPrice() }}</td>
+                            <td>{{ $product->updated_at }}</td>
+                            <td>
+                                icon
+                            </td>
                         </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($products as $product)
-
-                            <tr>
-                                <td class="ph2">
-                                    <a href="fw7">{{ $product->product_name }}</a>
-                                </td>
-                                <td>Que #</td>
-                                <td>Somehting</td>
-                                <td>adlkjfad</td>
-                                <td>akjdshfasf</td>
-                                <td>
-                                    icon
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

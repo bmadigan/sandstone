@@ -22,4 +22,9 @@ class Product extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function displayPrice()
+    {
+        return '$' . $this->price / 100;
+    }
 }
