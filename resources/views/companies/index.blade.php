@@ -2,12 +2,17 @@
 
 @section('content')
 
-    <h3>Company Listings</h3>
-
-    @foreach($companies as $company)
-        <div>
-            Company: {{ $company->company_name }}
+    <div class="panel">
+        <div class="panel-heading">
+            <h3>Company Listings</h3>
         </div>
-    @endforeach
+        <div class="panel-default">
+            @foreach($companies as $company)
+                <div>
+                    Company: {{ $company->company_name }}
+                </div>
+            @endforeach
+        </div>
+    </div>
 
 @endsection
