@@ -315,11 +315,11 @@ body {
 .btn-default {
   background-color: #FFF;
   border-color: #FFF;
-  color: #7746EC;
+  color: #66a1ee;
 }
 .btn-primary {
-  background-color: #7746EC;
-  border-color: #7746EC;
+  background-color: #66a1ee;
+  border-color: #66a1ee;
   color: #FFF;
 }
 .btn-link {
@@ -339,10 +339,10 @@ body {
   margin-bottom: 2rem;
 }
 .nav-item-active a.nav-link {
-  color: #7746EC;
+  color: #66a1ee;
 }
 .nav-item-active a.nav-link > i > svg {
-  fill: #7746EC;
+  fill: #66a1ee;
 }
 .nav-link {
   display: block;
@@ -370,10 +370,10 @@ body {
   position: absolute;
 }
 .nav-link:hover {
-  color: #7746EC;
+  color: #66a1ee;
 }
 .nav-link:hover > i > svg {
-  fill: #7746EC;
+  fill: #66a1ee;
 }
 .modal {
   position: fixed;
@@ -513,7 +513,7 @@ body {
   margin-left: -1px;
 }
 .pagination > li.active > a {
-  background-color: #7746EC;
+  background-color: #66a1ee;
   color: #FFF;
 }
 .pagination > li > a {
@@ -571,7 +571,7 @@ body {
   padding: 5px;
 }
 .table > tbody > tr > td > a {
-  color: #7746EC;
+  color: #66a1ee;
 }
 .table > tbody > tr > td > i {
   display: -webkit-inline-box;
@@ -677,8 +677,8 @@ body {
   border-bottom: 3px solid transparent;
 }
 .tab-link-active {
-  color: #7746EC;
-  border-bottom: 3px solid #7746EC;
+  color: #66a1ee;
+  border-bottom: 3px solid #66a1ee;
 }
 .xbrdr {
   border: none;
@@ -735,7 +735,7 @@ body {
   border-bottom-style: solid;
 }
 .border-color-primary {
-  border-color: #7746EC;
+  border-color: #66a1ee;
 }
 .border-color-gray-1 {
   border-color: #D8D8D8;
@@ -762,7 +762,7 @@ body {
   background-color: #FFF;
 }
 .bg1 {
-  background-color: #7746EC;
+  background-color: #66a1ee;
 }
 .bgsuccess {
   background-color: #779356;
@@ -804,7 +804,7 @@ body {
   background-color: #F8F8F8;
 }
 .tc1 {
-  color: #7746EC;
+  color: #66a1ee;
 }
 .tcw {
   color: #FFF;
@@ -852,7 +852,7 @@ body {
   color: #424C55;
 }
 .bc1 {
-  border-color: #7746EC;
+  border-color: #66a1ee;
 }
 .bctrans {
   border-color: transparent;
@@ -867,7 +867,7 @@ body {
   fill: currentColor;
 }
 .f1 {
-  fill: #7746EC;
+  fill: #66a1ee;
 }
 .fsuccess {
   fill: #779356;
@@ -1071,6 +1071,12 @@ body {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+.mt3 {
+  margin-top: 3rem;
+}
+.mt5 {
+  margin-top: 5rem;
+}
 .mt10 {
   margin-top: 10rem;
 }
@@ -1185,6 +1191,18 @@ body {
 .sans {
   font-family: Lato;
 }
+.ft-08 {
+  font-size: 0.8rem;
+}
+.ft-09 {
+  font-size: 0.9rem;
+}
+.ft11 {
+  font-size: 1.1rem;
+}
+.ft12 {
+  font-size: 1.2rem;
+}
 .ft13 {
   font-size: 1.3rem;
 }
@@ -1265,6 +1283,12 @@ body {
 }
 .lh2 {
   line-height: 2;
+}
+.helper-text {
+  color: #5B656E;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 .jobDetailsText {
   overflow-wrap: break-word;
