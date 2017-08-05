@@ -20,6 +20,15 @@ class ProductsController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $product = Auth::user()->products()->findOrFail($id);
+
+        return view('products.show', [
+            'product' => $product,
+        ]);
+    }
+
     /**
      * Display the create form
      *
