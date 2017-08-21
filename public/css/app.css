@@ -2247,6 +2247,7 @@ select.form-control {
   border: 1px solid #e8eaeb;
   border-radius: 0.25rem;
   overflow: hidden;
+  width: 100%;
 }
 .card-section {
   padding: 1rem 1.5rem;
@@ -2334,6 +2335,7 @@ select.form-control {
 .pagination {
   margin-top: .5rem;
   margin-bottom: .5rem;
+  font-size: 0.875rem !important;
 }
 .pagination {
   display: -webkit-box;
