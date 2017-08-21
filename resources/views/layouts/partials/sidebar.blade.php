@@ -21,9 +21,5 @@
         </ul>
 
         <p>Does public directive work?</p>
-        @public
-            <p>Im a public thing</p>
-        @else 
-            <p>Im NOT a public thing</p>
-        @endpublic
+
     </aside>

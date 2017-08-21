@@ -16,10 +16,6 @@ class AppServiceProvider extends ServiceProvider
     {
         // Fix for older Mysql and MariaDB
         Schema::defaultStringLength(191);
-
-        \Blade::if('public', function () {
-            return ! auth()->check();
-        });
     }
 
     /**

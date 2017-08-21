@@ -14,34 +14,17 @@
 <div class="bg-soft p-xs-y-5">
     <div class="container m-xs-b-4">
         <div class="m-xs-b-6">
-            <h2 class="m-xs-b-3 text-base wt-medium text-dark-soft">Published</h2>
+
             <div class="row">
-                <table class="table" cellpadding="0" cellspacing="0">
-                    <thead>
-                    <tr>
-                        <th class="pl2">Job</th>
-                        <th>On</th>
-                        <th>Tags</th>
-                        <th>Runtime</th>
-                        <th>Failed At</th>
-                        <th>Retry</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="ph2">
-                            <a href="fw7">Company Name</a>
-                        </td>
-                        <td>Que #</td>
-                        <td>Somehting</td>
-                        <td>adlkjfad</td>
-                        <td>akjdshfasf</td>
-                        <td>
-                            icon
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+
+                <h4>Here is a sample custom Blade Directive</h4>
+
+                @public
+                    <p>I can be seen by anyone</p>
+                @else
+                    <p>I can only be seen by Authenticated Users</p>
+                @endpublic
+
             </div>
         </div>
     </div>
