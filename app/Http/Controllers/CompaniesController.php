@@ -53,7 +53,9 @@ class CompaniesController extends Controller
             'contact_email'
         ]));
 
-        return redirect($company->path());
+        return redirect($company->path())
+                ->with('flash', 'The company has been created!')
+                ->with('css', 'alert-success');
     }
 
     public function edit($id)
@@ -85,7 +87,10 @@ class CompaniesController extends Controller
             'contact_email'
         ]));
 
-        return redirect($company->path());
+
+        return redirect($company->path())
+                ->with('flash', 'The company has been updated!')
+                ->with('css', 'alert-success');
     }
 
     public function destroy($id)
@@ -94,6 +99,8 @@ class CompaniesController extends Controller
 
         $company->delete();
 
-        return redirect("/companies");
+        return redirect('/companies')
+                ->with('flash', 'The company has been removed!')
+                ->with('css', 'alert-success');
     }
 }

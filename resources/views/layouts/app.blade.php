@@ -15,8 +15,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-dark" id="app">
-    <div class="full-height bg-soft flex-col">
+<body class="bg-dark">
+    <div class="full-height bg-soft flex-col" id="app">
 
         @include('layouts.partials.header')
 
@@ -26,6 +26,7 @@
 
         @include('layouts.partials.footer')
 
+        <flash message="{{ session('flash') }}" css="{{ session('css') }}"></flash>
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

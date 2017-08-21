@@ -9,6 +9,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+// Global Event Listeners
+window.events = new Vue();
+window.flash = function (message, css) {
+    window.events.$emit('flash', message, css);
+};
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -16,6 +22,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('flash', require('./components/Utilities/Flash.vue'));
 
 const app = new Vue({
     el: '#app'

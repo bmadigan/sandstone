@@ -2274,6 +2274,14 @@ select.form-control {
   background-color: #fffafa;
   border-color: #d95550;
 }
+.alert-success {
+  background-color: #fdfffa;
+  border-color: #93d152;
+}
+.alert-warning {
+  background-color: #fffefa;
+  border-color: #f0db1f;
+}
 .bullet-list {
   list-style-type: disc;
   padding-left: 2.5rem;
