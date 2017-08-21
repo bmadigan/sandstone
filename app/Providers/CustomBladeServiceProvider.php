@@ -14,8 +14,14 @@ class CustomBladeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Sample:  @public  then display to anyone  @endpublic
         Blade::if('public', function () {
             return ! auth()->check();
+        });
+
+        // Sample:   @env('production') then echo out analytics.js @endenv
+        Blade::if('env', function ($env) {
+            return app()->environment($env);
         });
     }
 
