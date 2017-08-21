@@ -2282,6 +2282,16 @@ select.form-control {
   background-color: #fffefa;
   border-color: #f0db1f;
 }
+.alert-notify {
+  margin-bottom: 1rem;
+  font-size: 0.875rem !important;
+  font-weight: 300 !important;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #e9e9e9;
+  width: 100%;
+  color: #666666;
+}
 .bullet-list {
   list-style-type: disc;
   padding-left: 2.5rem;

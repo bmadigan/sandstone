@@ -16,7 +16,9 @@
 
             <div class="row">
 
-                <p>* This table is a standard Eloquent pagination example with a Blade directive</p>
+                <div class="alert alert-notify ">
+                    * This table is a standard Eloquent pagination example with a Blade directive
+                </div>
 
                 <table class="table" cellpadding="0" cellspacing="0">
                     <thead>
