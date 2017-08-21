@@ -1,50 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="bg-light p-xs-y-4 border-b">
+    <div class="container">
+        <div class="flex-spaced flex-y-center">
+            <h1 class="text-lg">Company Index</h1>
+            <a href="{{ route('companies.create') }}" class="btn btn-primary">Add Company</a>
+        </div>
+    </div>
+</div>
 
-    <section class="main-content">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="vab">
-                    <span class="mr2">Company Index</span>
-                </div>
-                <a href="{{ route('companies.create') }}" class="btn btn-primary btn-md">
-                    x Create A New Company
-                </a>
-            </div>
+<div class="bg-soft p-xs-y-5">
+    <div class="container m-xs-b-4">
+        <div class="m-xs-b-6">
 
-            <div class="panel-content">
-                    <table class="table" cellpadding="0" cellspacing="0">
-                        <thead>
+            <div class="row">
+                <table class="table" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="pl2">Job</th>
+                        <th>On</th>
+                        <th>Tags</th>
+                        <th>Runtime</th>
+                        <th>Failed At</th>
+                        <th>Retry</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($companies as $company)
+
                         <tr>
-                            <th class="pl2">Job</th>
-                            <th>On</th>
-                            <th>Tags</th>
-                            <th>Runtime</th>
-                            <th>Failed At</th>
-                            <th>Retry</th>
+                            <td class="ph2">
+                                <a href="fw7">{{ $company->company_name }}</a>
+                            </td>
+                            <td>Que #</td>
+                            <td>Somehting</td>
+                            <td>adlkjfad</td>
+                            <td>akjdshfasf</td>
+                            <td>
+                                icon
+                            </td>
                         </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($companies as $company)
-
-                            <tr>
-                                <td class="ph2">
-                                    <a href="fw7">{{ $company->company_name }}</a>
-                                </td>
-                                <td>Que #</td>
-                                <td>Somehting</td>
-                                <td>adlkjfad</td>
-                                <td>akjdshfasf</td>
-                                <td>
-                                    icon
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
 @endsection

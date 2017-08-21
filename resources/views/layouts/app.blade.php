@@ -11,25 +11,22 @@
     <title>{{ config('app.name', 'Pilaster Digital') }}</title>
 
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
+<body class="bg-dark" id="app">
+    <div class="full-height bg-soft flex-col">
 
         @include('layouts.partials.header')
 
-        <div class="wrapper df">
-            @include('layouts.partials.sidebar')
-
+        <div class="flex-fit">
             @yield('content')
-
         </div>
 
         @include('layouts.partials.footer')
-    </div><!--/#app-->
 
+    </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

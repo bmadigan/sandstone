@@ -2,18 +2,20 @@
 
 @section('content')
 
-    <section class="main-content">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="vab">
-                    <span class="mr2">Product Listings</span>
-                </div>
-                <button href="{{ route('products.create') }}" class="btn btn-primary btn-md">
-                    <i class="fa fa-plus-square mr1" aria-hidden="true"></i> Create A New Product
-                </button>
-            </div>
+<div class="bg-light p-xs-y-4 border-b">
+    <div class="container">
+        <div class="flex-spaced flex-y-center">
+            <h1 class="text-lg">Product Listings</h1>
+            <a href="{{ route('products.create') }}" class="btn btn-primary">Add A New Product</a>
+        </div>
+    </div>
+</div>
 
-            <div class="panel-content">
+<div class="bg-soft p-xs-y-5">
+    <div class="container m-xs-b-4">
+        <div class="m-xs-b-6">
+
+            <div class="row">
                 <table class="table mt3" cellpadding="0" cellspacing="0">
                     <thead>
                     <tr>
@@ -40,6 +42,8 @@
                 </table>
             </div>
         </div>
-    </section>
+    </div>
+</div>
+
 
 @endsection

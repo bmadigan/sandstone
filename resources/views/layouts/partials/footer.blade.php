@@ -1,5 +1,5 @@
-<footer class="main-footer">
-    <div class="wrapper brdr1--top bcg1 pv2 mv4">
-        <p class="ft13 basic-text tac">Pilaster Sandstone is developed by Brad Madigan at Pilaster Digital. Copyright © {{ date('Y') }}. All rights reserved.</p>
+<footer class="bg-dark p-xs-y-6 text-light-muted">
+    <div class="container">
+        <p class="text-center">Pilaster Sandstone is developed by Brad Madigan at Pilaster Digital. Copyright © {{ date('Y') }}. All rights reserved.</p>
     </div>
 </footer>

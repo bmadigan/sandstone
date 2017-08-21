@@ -20,6 +20,9 @@
   },
   "dependencies": {
     "less": "^2.7.2",
-    "less-loader": "^4.0.5"
+    "less-loader": "^4.0.5",
+    "es6-promise": "^4.0.5",
+    "normalize.css": "^5.0.0",
+    "suitcss-base": "^2.0.0"
   }
 }
