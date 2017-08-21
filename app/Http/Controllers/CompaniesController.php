@@ -16,7 +16,21 @@ class CompaniesController extends Controller
     public function index()
     {
         return view('companies.index', [
-            'companies' => Auth::user()->companies()->orderBy('company_name')->get()
+            'companies' => Auth::user()->companies()->orderBy('company_name')->paginate(10)
+        ]);
+    }
+
+    /**
+     * Company show page
+     *
+     * @return void
+     */
+    public function show($id)
+    {
+        $company = Auth::user()->companies()->findOrFail($id);
+
+        return view('companies.show', [
+            'company' => $company,
         ]);
     }
 
@@ -27,7 +41,11 @@ class CompaniesController extends Controller
      */
     public function create()
     {
-        return view('companies.create');
+        $company = new Company;
+
+        return view('companies.create', [
+            'company' => $company,
+        ]);
     }
 
     /**
@@ -53,7 +71,7 @@ class CompaniesController extends Controller
             'contact_email'
         ]));
 
-        return redirect($company->path())
+        return redirect('/companies')
                 ->with('flash', 'The company has been created!')
                 ->with('css', 'alert-success');
     }

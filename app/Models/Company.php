@@ -53,4 +53,21 @@ class Company extends Model
     {
         return $this->hasMany(Contract::class, 'buyer_id');
     }
+
+
+    /**
+    * Display a simple Street Address as an example
+    */
+    public function displayStreetAddress()
+    {
+        return $this->street_address . '<br>' . $this->secondary_address;
+    }
+
+    /**
+    * Display a simple contact with email as an example
+    */
+    public function displayContact()
+    {
+        return $this->contact_name . '<br>' . $this->contact_email;
+    }
 }

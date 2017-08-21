@@ -543,14 +543,14 @@ h4 {
 a,
 .link {
   font-weight: 400;
-  color: #29363d;
+  color: #38a3e0;
   text-decoration: none;
 }
 a:hover,
 .link:hover,
 a:focus,
 .link:focus {
-  color: #0a0d0f;
+  color: #1c7ab0;
   text-decoration: underline;
 }
 a:focus,

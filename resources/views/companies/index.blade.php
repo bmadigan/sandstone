@@ -15,35 +15,44 @@
         <div class="m-xs-b-6">
 
             <div class="row">
+
+                <p>* This table is a standard Eloquent pagination example with a Blade directive</p>
+
                 <table class="table" cellpadding="0" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="pl2">Job</th>
-                        <th>On</th>
-                        <th>Tags</th>
-                        <th>Runtime</th>
-                        <th>Failed At</th>
-                        <th>Retry</th>
+                        <th class="pl2">Company</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Contact</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($companies as $company)
-
-                        <tr>
-                            <td class="ph2">
-                                <a href="fw7">{{ $company->company_name }}</a>
-                            </td>
-                            <td>Que #</td>
-                            <td>Somehting</td>
-                            <td>adlkjfad</td>
-                            <td>akjdshfasf</td>
-                            <td>
-                                icon
-                            </td>
-                        </tr>
-                    @endforeach
+                        @foreach($companies as $company)
+                            <tr>
+                                <td class="ph2">
+                                    <a href="{{ $company->path() }}">
+                                        {{ $company->company_name }}
+                                    </a>
+                                </td>
+                                <td>
+                                    {!! $company->displayStreetAddress() !!}
+                                </td>
+                                <td>{{ $company->city }}</td>
+                                <td>{!! $company->displayContact() !!}</td>
+                                <td>
+                                    <a href="{{ route('companies.edit', $company) }}">
+                                        <i class="fa fa-pencil-square m-xs-2" aria-hidden="true"></i>
+                                    </a>
+                                    <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+
+                {{ $companies->links() }}
+
             </div>
         </div>
     </div>

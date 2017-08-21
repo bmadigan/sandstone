@@ -12,12 +12,22 @@
 
 <div class="bg-soft p-xs-y-5">
     <div class="container m-xs-b-4">
-        <div class="m-xs-b-6">
+        {!! Form::open(['route' => 'companies.store']) !!}
 
-            <div class="row">
-                I am a form
+            <div class="card">
+
+                @include('companies._form')
+
+                <div class="card-section">
+                    <div class="container text-right">
+                        <button type="submit" class="btn btn-primary">Save New Company</button>
+                    </div>
+                </div>
+
             </div>
-        </div>
+
+        {!! Form::close() !!}
+
     </div>
 </div>
 
