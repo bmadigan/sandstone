@@ -117,6 +117,10 @@ class CompaniesController extends Controller
 
         $company->delete();
 
+        if(request()->wantsJson()) {
+            return response([], 204);
+        }
+
         return redirect('/companies')
                 ->with('flash', 'The company has been removed!')
                 ->with('css', 'alert-success');

@@ -15,7 +15,8 @@
         <div class="m-xs-b-6">
 
             <div class="alert alert-notify ">
-                * This table is a standard Eloquent pagination example with a Blade directive
+                * This table is a standard Eloquent pagination example with a Blade directive.<br>
+                The Edit and Destroy are standard CRUD operations.
             </div>
 
             <div class="row">
@@ -48,7 +49,11 @@
                                             <a href="{{ route('companies.edit', $company) }}">
                                                 <i class="fa fa-pencil-square m-xs-2" aria-hidden="true"></i>
                                             </a>
-                                            <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            {!! Form::open(['route' => ['companies.destroy', $company->id], 'method' => 'DELETE', 'class' => 'inline']) !!}
+                                                <button type="submit" class="btn btn-link">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            {!! Form::close() !!}
                                         </td>
                                     </tr>
                                 @endforeach

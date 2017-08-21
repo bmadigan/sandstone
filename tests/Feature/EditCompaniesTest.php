@@ -28,7 +28,7 @@ class EditCompaniesTest extends TestCase
     public function a_guest_user_cannot_view_the_edit_page()
     {
         $this->withExceptionHandling();
-        
+
         $response = $this->get('/companies/1/edit');
 
         $response->assertStatus(302);
@@ -61,6 +61,17 @@ class EditCompaniesTest extends TestCase
 
         $response = $this->actingAs($user)->delete("/companies/{$company->id}");
         $response->assertRedirect('/companies');
+
+        $this->assertDatabaseMissing('companies', $company->toArray());
+    }
+
+    /** @test */
+    function a_user_can_delete_a_company_via_ajax()
+    {
+        $user = factory(User::class)->create();
+        $company = factory(Company::class)->create(['user_id' => $user->id]);
+
+        $response = $this->actingAs($user)->json("DELETE", $company->path());
 
         $this->assertDatabaseMissing('companies', $company->toArray());
     }

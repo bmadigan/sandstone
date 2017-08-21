@@ -517,6 +517,9 @@ button,
 [role=button] {
   cursor: pointer;
 }
+.inline {
+  display: inline-block;
+}
 small {
   font-size: 0.875rem;
 }
@@ -2094,12 +2097,12 @@ select.form-control {
 }
 .btn-link {
   font-weight: 400;
-  color: #29363d;
+  color: #38a3e0;
   background-color: transparent;
 }
 .btn-link:focus,
 .btn-link:hover {
-  color: #0a0d0f;
+  color: #1c7ab0;
   text-decoration: underline;
 }
 .btn-pad-lg {
