@@ -16,6 +16,24 @@ class Company extends Model
      */
     protected $guarded = ['id'];
 
+   /**
+     * The relationships to always eager-load.
+     *
+     * @var array
+     */
+    protected $with = ['user'];
+
+
+    /**
+     * Get a string path for the company.
+     *
+     * @return string
+     */
+    public function path()
+    {
+        return "/companies/{$this->id}";
+    }
+
     /**
      * Get the associated user account
      *

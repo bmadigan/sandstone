@@ -42,18 +42,18 @@ class CompaniesController extends Controller
         ]);
 
         $company = Auth::user()->companies()->create(request([
-            'company_name', 
-            'street_address', 
-            'secondary_address', 
-            'city', 
-            'state', 
+            'company_name',
+            'street_address',
+            'secondary_address',
+            'city',
+            'state',
             'country',
-            'zipcode', 
-            'contact_name', 
+            'zipcode',
+            'contact_name',
             'contact_email'
         ]));
 
-        return redirect("/companies/{$company->id}");
+        return redirect($company->path());
     }
 
     public function edit($id)
@@ -74,18 +74,18 @@ class CompaniesController extends Controller
         ]);
 
         $company->update(request([
-            'company_name', 
-            'street_address', 
-            'secondary_address', 
-            'city', 
-            'state', 
+            'company_name',
+            'street_address',
+            'secondary_address',
+            'city',
+            'state',
             'country',
-            'zipcode', 
-            'contact_name', 
+            'zipcode',
+            'contact_name',
             'contact_email'
         ]));
 
-        return redirect("/companies/{$company->id}");
+        return redirect($company->path());
     }
 
     public function destroy($id)
