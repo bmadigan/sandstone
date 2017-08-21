@@ -2329,6 +2329,7 @@ select.form-control {
 }
 .table td {
   border-top: 1px solid #e8eaeb;
+  font-size: 0.875rem !important;
 }
 [v-cloak] .v-cloak-block {
   display: block;
