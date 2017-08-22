@@ -3,7 +3,9 @@
         <div class="container">
             <div class="navbar-content">
                 <div>
-                    Logo
+                    <a href="/">
+                        <img src="/images/pilaster-logo.png" style="width:70px;">
+                    </a>
                 </div>
                 <div>
                     @guest
