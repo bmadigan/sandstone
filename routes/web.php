@@ -37,8 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/contracts/{id}',        'ContractsController@destroy')->name('contracts.destroy');
 
     Route::get('/products',                'ProductsController@index')->name('products.index');
-    Route::get('/products/{id}',           'ProductsController@index')->name('products.show');
     Route::get('/products/create',         'ProductsController@create')->name('products.create');
+    Route::get('/products/{id}',           'ProductsController@index')->name('products.show');
     Route::post('/products',               'ProductsController@store')->name('products.store');
     Route::get('/products/{id}/edit',      'ProductsController@edit')->name('products.edit');
     Route::patch('/products/{id}',         'ProductsController@update')->name('products.update');

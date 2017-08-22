@@ -34,7 +34,12 @@
                             <td>{{ formatAsCurrency($product->price) }}</td>
                             <td>
                                 <a href="{{ route('products.edit', $product) }}"><i class="fa fa-pencil-square mr1" aria-hidden="true"></i></a>
-                                <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'DELETE', 'class' => 'inline']) !!}
+                                    <button type="submit" class="btn btn-link">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                     @endforeach

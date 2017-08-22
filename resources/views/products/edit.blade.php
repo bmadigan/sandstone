@@ -13,12 +13,22 @@
 
 <div class="bg-soft p-xs-y-5">
     <div class="container m-xs-b-4">
-        <div class="m-xs-b-6">
+        {!! Form::open(['route' => ['products.update', $product->id], 'method' => 'PATCH']) !!}
 
-            <div class="row">
-                I am an update form
+            <div class="card">
+
+                @include('products._form')
+
+                <div class="card-section">
+                    <div class="container text-right">
+                        <button type="submit" class="btn btn-primary">Update Product</button>
+                    </div>
+                </div>
+
             </div>
-        </div>
+
+        {!! Form::close() !!}
+
     </div>
 </div>
 
