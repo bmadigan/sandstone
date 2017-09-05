@@ -71,7 +71,7 @@ class CompaniesController extends Controller
             'contact_email'
         ]));
 
-        return redirect('/companies')
+        return redirect("/companies/{$company->id}")
                 ->with('flash', 'The company has been created!')
                 ->with('css', 'alert-success');
     }
