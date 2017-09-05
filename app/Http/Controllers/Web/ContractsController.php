@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use Auth;
 use App\Models\Contract;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ContractsController extends Controller
 {

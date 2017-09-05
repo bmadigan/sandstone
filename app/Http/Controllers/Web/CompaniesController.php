@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use Auth;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CompaniesController extends Controller
 {

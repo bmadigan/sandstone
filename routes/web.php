@@ -17,7 +17,7 @@ Route::get('/', function () {
 | Logged in User only routes
 |--------------------------------------------------------------------------
 */
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['namespace' => 'Web', 'middleware' => 'auth'], function() {
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
