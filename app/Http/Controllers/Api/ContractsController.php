@@ -12,7 +12,7 @@ class ContractsController extends Controller
 {
     public function index()
     {
-        $contracts = Contract::all();//Auth::user()->contracts()->orderBy('contract_id')->paginate(10);
+        $contracts = Auth::user()->contracts()->latest()->paginate(10);
 
         return ContractResource::collection($contracts);
     }

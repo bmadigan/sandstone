@@ -15,37 +15,20 @@
     <div class="container m-xs-b-4">
         <div class="m-xs-b-6">
 
-            <div class="row">
-                <table class="table" cellpadding="0" cellspacing="0">
-                    <thead>
-                    <tr>
-                        <th class="pl2">Contract #</th>
-                        <th>On</th>
-                        <th>Tags</th>
-                        <th>Runtime</th>
-                        <th>Failed At</th>
-                        <th>Retry</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($contracts as $contract)
-
-                        <tr>
-                            <td class="ph2">
-                                <a href="fw7">{{ $contract->contract_number }}</a>
-                            </td>
-                            <td>Que #</td>
-                            <td>Somehting</td>
-                            <td>adlkjfad</td>
-                            <td>akjdshfasf</td>
-                            <td>
-                                icon
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+            <div class="alert alert-notify ">
+                * This table is VueJS Component
             </div>
+
+            <div class="row">
+                <div class="card">
+                    <div class="card-section">
+
+                        <contract-list></contract-list>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

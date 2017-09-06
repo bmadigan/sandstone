@@ -9,6 +9,7 @@ window.flash = function (message, css) {
 };
 
 Vue.component('flash', require('./components/Utilities/Flash.vue'));
+Vue.component('ContractList', require('./components/Modules/Contracts/ContractList.vue'));
 
 const app = new Vue({
     el: '#app'

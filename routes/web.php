@@ -13,7 +13,7 @@ Route::get('/', function () {
 
 /*
 |--------------------------------------------------------------------------
-| Logged in User only routes
+| Logged in User Web routes
 |--------------------------------------------------------------------------
 */
 Route::group(['namespace' => 'Web', 'middleware' => 'auth'], function() {
@@ -45,5 +45,14 @@ Route::group(['namespace' => 'Web', 'middleware' => 'auth'], function() {
 });
 
 
-    Route::get('/contracts',                'ContractsController@index')->name('contracts.index');
-    Route::get('/contracts/{id}',           'ContractsController@show')->name('contracts.show');
+/*
+|--------------------------------------------------------------------------
+| Standard Vue API Calls
+|--------------------------------------------------------------------------
+*/
+Route::group(['namespace' => 'Api', 'middleware' => 'auth'], function() {
+
+    Route::get('/api/contracts',                'ContractsController@index')->name('contracts.api.index');
+    Route::get('/api/contracts/{id}',           'ContractsController@show')->name('contracts.api.show');
+
+});
