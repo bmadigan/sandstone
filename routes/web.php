@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Public Accessible Routes
@@ -44,3 +43,7 @@ Route::group(['namespace' => 'Web', 'middleware' => 'auth'], function() {
     Route::patch('/products/{id}',         'ProductsController@update')->name('products.update');
     Route::delete('/products/{id}',        'ProductsController@destroy')->name('products.destroy');
 });
+
+
+    Route::get('/contracts',                'ContractsController@index')->name('contracts.index');
+    Route::get('/contracts/{id}',           'ContractsController@show')->name('contracts.show');

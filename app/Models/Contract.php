@@ -14,13 +14,18 @@ class Contract extends Model
     protected $guarded = ['id'];
 
     /**
-     * Get the buyers for this contract.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Always eager load the contracts buyer and user relationships
      */
-    public function buyers()
+    protected $with = ['buyer', 'user'];
+
+    /**
+     * Get the buyer for this contract.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function buyer()
     {
-        return $this->hasMany(Company::class, 'buyer_id');
+        return $this->belongsTo(Company::class, 'buyer_id');
     }
 
     /**
