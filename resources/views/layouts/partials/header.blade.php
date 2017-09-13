@@ -9,7 +9,7 @@
                 </div>
                 <div>
                     @guest
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Login</a> &nbsp;
                         <a href="{{ route('register') }}">Register</a>
                     @else
                         <a href="{{ route('dashboard') }}" class="link link-light m-xs-r-6">Dashboard</a>
