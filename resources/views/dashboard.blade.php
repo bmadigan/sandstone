@@ -28,7 +28,8 @@
                         @endpublic
                     </div>
                 </div>
-            </div>
+            </div><!--/row-->
+
         </div>
     </div>
 </div>

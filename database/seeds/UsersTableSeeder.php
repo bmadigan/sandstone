@@ -16,7 +16,8 @@ class UsersTableSeeder extends Seeder
         // Setup some developer accounts to test with
         $developers = [
             ['name' => 'Tony Richards', 'email' => 'tony@pilasterdigital.com', 'password' => 'secret'],
-            ['name' => 'Brad Madigan', 'email' => 'bradmadigan@gmail.com', 'password' => 'secret']
+            ['name' => 'Brad Madigan', 'email' => 'bradmadigan@gmail.com', 'password' => 'secret'],
+            ['name' => 'Admin Tester', 'email' => 'test@pilasterdigital.com', 'password' => 'secret']
         ];
 
         collect($developers)->each(function($dev) {

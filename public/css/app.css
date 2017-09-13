@@ -523,8 +523,26 @@ button,
 .cursor {
   cursor: pointer;
 }
+.text-welcome {
+  font-size: 0.875rem !important;
+  color: rgba(41, 54, 61, 0.6);
+  line-height: 1.65em;
+}
 small {
   font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.5em;
+}
+blockquote {
+  color: rgba(41, 54, 61, 0.6);
+  background-color: #f9f9f9;
+  padding: 20px 10px;
+  margin: 15px 0;
+  line-height: 1.85em;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  font-style: italic;
 }
 h1,
 h2,
