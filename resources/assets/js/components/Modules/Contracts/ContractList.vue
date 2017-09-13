@@ -80,21 +80,21 @@
                         this.stopSpinner();
                     }).catch(error => {
                         alert({ type: 'error', text: 'Server error retreiving contracts' });
-                        console.log(error);
+                        console.log(error.message);
                         this.stopSpinner();
                     });
             },
 
             searchContracts() {
                 this.startSpinner();
-                axios.get('/api/contracts')
+                axios.get('/api/contracts?searchQuery=' + this.searchQuery)
                     .then(response => {
                         this.contracts = response.data.data;
                         this.initPagination(response.data);
                         this.stopSpinner();
                     }).catch(error => {
                         alert({ type: 'error', text: 'Server error retreiving contracts' });
-                        console.log(error);
+                        console.log(error.message);
                         this.stopSpinner();
                     });
             },
@@ -117,7 +117,7 @@
                         this.stopSpinner();
                     }).catch(error => {
                         alert({ type: 'error', text: 'Server error retreiving contracts' });
-                        console.log(error);
+                        console.log(error.message);
                         this.stopSpinner();
                     });
             },
@@ -130,7 +130,7 @@
                         this.stopSpinner();
                     }).catch(error => {
                         alert({ type: 'error', text: 'Server error retreiving contracts' });
-                        console.log(error);
+                        console.log(error.message);
                         this.stopSpinner();
                     });
             },

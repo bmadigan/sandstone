@@ -42275,7 +42275,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.stopSpinner();
             }).catch(function (error) {
                 alert({ type: 'error', text: 'Server error retreiving contracts' });
-                console.log(error);
+                console.log(error.message);
                 _this.stopSpinner();
             });
         },
@@ -42283,13 +42283,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             this.startSpinner();
-            axios.get('/api/contracts').then(function (response) {
+            axios.get('/api/contracts?searchQuery=' + this.searchQuery).then(function (response) {
                 _this2.contracts = response.data.data;
                 _this2.initPagination(response.data);
                 _this2.stopSpinner();
             }).catch(function (error) {
                 alert({ type: 'error', text: 'Server error retreiving contracts' });
-                console.log(error);
+                console.log(error.message);
                 _this2.stopSpinner();
             });
         },
@@ -42314,7 +42314,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this3.stopSpinner();
             }).catch(function (error) {
                 alert({ type: 'error', text: 'Server error retreiving contracts' });
-                console.log(error);
+                console.log(error.message);
                 _this3.stopSpinner();
             });
         },
@@ -42328,7 +42328,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this4.stopSpinner();
             }).catch(function (error) {
                 alert({ type: 'error', text: 'Server error retreiving contracts' });
-                console.log(error);
+                console.log(error.message);
                 _this4.stopSpinner();
             });
         },

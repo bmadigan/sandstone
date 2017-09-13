@@ -47,4 +47,17 @@ class Contract extends Model
     {
         return $query->where('status', strtoupper($status));
     }
+
+    /**
+     * Scope the contracts to only include by given Search term
+     */
+    public function scopeBySearch($query, $like = null)
+    {
+        if ($like) {
+            $query->where(function ($query) use ($like) {
+                $query->where('contract_number', 'like', $search = "%{$like}%")
+                      ->orWhere('contract_name', 'like', $search);
+            });
+        }
+    }
 }

@@ -12,11 +12,11 @@ class ContractsController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->searchQuery) {
-            //
-        }
 
-        $contracts = Auth::user()->contracts()->latest()->paginate(20);
+        $contracts = Auth::user()->contracts()
+            ->bySearch($request->input('searchQuery'))
+            ->latest()
+            ->paginate(20);
 
         return ContractResource::collection($contracts);
     }
