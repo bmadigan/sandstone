@@ -520,6 +520,9 @@ button,
 .inline {
   display: inline-block;
 }
+.cursor {
+  cursor: pointer;
+}
 small {
   font-size: 0.875rem;
 }
@@ -2336,6 +2339,7 @@ select.form-control {
   font-size: 0.875rem !important;
 }
 .pagination {
+  border: 1px solid #e8eaeb;
   margin-top: .5rem;
   margin-bottom: .5rem;
   font-size: 0.875rem !important;

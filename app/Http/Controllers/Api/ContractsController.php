@@ -10,9 +10,13 @@ use App\Http\Resources\ContractResource;
 
 class ContractsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $contracts = Auth::user()->contracts()->latest()->paginate(10);
+        if($request->searchQuery) {
+            //
+        }
+
+        $contracts = Auth::user()->contracts()->latest()->paginate(20);
 
         return ContractResource::collection($contracts);
     }

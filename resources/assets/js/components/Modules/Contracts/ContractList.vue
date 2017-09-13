@@ -2,6 +2,11 @@
     <div>
         <vue-simple-spinner message="Loading..." v-if="isLoading"></vue-simple-spinner>
 
+        <div class="place-to-the-right mb-12">
+            <form id="search" v-on:submit.prevent="searchContracts">
+                <input name="query" v-model="searchQuery" placeholder="Search Contracts ...">
+            </form>
+        </div>
         <table class="table mt3">
             <thead>
                 <tr>
@@ -19,25 +24,49 @@
                     </td>
                     <td class="ph2">
                         {{ contract.buyer.company_name }}
-                        <br><small>E: {{ contract.buyer.contact_email }}</small>
+                        <br><small>E:
+                            <a :href="'mailto:' + contract.buyer.contact_email">{{ contract.buyer.contact_email }}</a>
+                        </small>
                     </td>
                     <td>{{ contract.released_date }}</td>
                     <td>{{ contract.released_weight }}</td>
                 </tr>
             </tbody>
         </table>
+
+        <div class="pagination">
+            <span v-if="pagination.prevLink">
+                <a @click="prevLink" :class="cursorCss">&laquo; Prev</a>
+            </span>
+            Page {{ pagination.currentPage }} of {{ pagination.lastPage }}
+            <span v-if="pagination.nextLink">
+                <a @click="nextLink" :class="cursorCss">Next &raquo;</a>
+            </span>
+        </div>
+
     </div>
 </template>
 
 <script>
-    import Spinner from 'vue-simple-spinner'
+    import Spinner      from 'vue-simple-spinner'
+
     export default {
         components: { Spinner },
 
         data() {
             return {
-                contracts: '',
-                isLoading: false
+                contracts:  '',
+                isLoading:  false,
+                searchQuery:   '',
+                pagination: {
+                    currentPage: 1,
+                    totalRecords: 0,
+                    perPage: 10,
+                    lastPage: 1,
+                    nextLink: '',
+                    prevLink: ''
+                },
+                cursorCss: 'cursor'
             }
         },
 
@@ -47,6 +76,7 @@
                 axios.get('/api/contracts')
                     .then(response => {
                         this.contracts = response.data.data;
+                        this.initPagination(response.data);
                         this.stopSpinner();
                     }).catch(error => {
                         alert({ type: 'error', text: 'Server error retreiving contracts' });
@@ -54,12 +84,63 @@
                         this.stopSpinner();
                     });
             },
+
+            searchContracts() {
+                this.startSpinner();
+                axios.get('/api/contracts')
+                    .then(response => {
+                        this.contracts = response.data.data;
+                        this.initPagination(response.data);
+                        this.stopSpinner();
+                    }).catch(error => {
+                        alert({ type: 'error', text: 'Server error retreiving contracts' });
+                        console.log(error);
+                        this.stopSpinner();
+                    });
+            },
+
+            // Pagination methods
+            initPagination(data) {
+                this.pagination.currentPage = data.meta.current_page;
+                this.pagination.lastPage = data.meta.last_page;
+                this.pagination.perPage = data.meta.per_page;
+                this.pagination.totalRecords = data.meta.total;
+                this.pagination.prevLink = data.links.prev;
+                this.pagination.nextLink = data.links.next;
+            },
+            prevLink() {
+                this.startSpinner();
+                axios.get(this.pagination.prevLink)
+                    .then(response => {
+                        this.contracts = response.data.data;
+                        this.initPagination(response.data);
+                        this.stopSpinner();
+                    }).catch(error => {
+                        alert({ type: 'error', text: 'Server error retreiving contracts' });
+                        console.log(error);
+                        this.stopSpinner();
+                    });
+            },
+            nextLink() {
+                this.startSpinner();
+                axios.get(this.pagination.nextLink)
+                    .then(response => {
+                        this.contracts = response.data.data;
+                        this.initPagination(response.data);
+                        this.stopSpinner();
+                    }).catch(error => {
+                        alert({ type: 'error', text: 'Server error retreiving contracts' });
+                        console.log(error);
+                        this.stopSpinner();
+                    });
+            },
+            // Loading Spinner
             startSpinner() {
                 this.isLoading = true;
             },
             stopSpinner() {
                 this.isLoading = false;
-            }
+            },
         },
 
         created() {
@@ -68,3 +149,13 @@
 
     }
 </script>
+
+<style>
+.place-to-the-right {
+    text-align: right;
+}
+.cursor {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+</style>
