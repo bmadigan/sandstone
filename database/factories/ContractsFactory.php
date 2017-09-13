@@ -8,6 +8,7 @@ $factory->define(App\Models\Contract::class, function (Faker $faker) {
 	        'buyer_id'          => 1,
 	        'contract_name'     => $faker->company . ' - ' . $faker->jobTitle,
 	        'contract_number'   => 'ID-' . $faker->ean8,
+            'status'            => $faker->randomElement(['OPEN', 'CLOSED', 'PENDING']),
 	        'released_date'     => $faker->dateTimeThisYear,
 	        'released_weight'   => $faker->numberBetween(10000,100000)
 	    ];

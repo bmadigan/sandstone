@@ -19,6 +19,7 @@ class CreateContractsTable extends Migration
             $table->unsignedInteger('buyer_id')->index();
             $table->string('contract_name');
             $table->string('contract_number');
+            $table->string('status', 25)->default('OPEN');
             $table->date('released_date')->nullable();
             $table->integer('released_weight')->nullable();
             $table->timestamps();

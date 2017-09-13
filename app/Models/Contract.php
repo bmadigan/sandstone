@@ -37,4 +37,14 @@ class Contract extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Scope the contracts to only include contracts of a Given status
+     * For eg:  Contract::ofStatus('Closed')->get();
+     *
+     */
+    public function scopeOfStatus($query, $status)
+    {
+        return $query->where('status', strtoupper($status));
+    }
 }
