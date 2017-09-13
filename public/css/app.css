@@ -632,6 +632,15 @@ a:focus,
 .link-light-muted:focus {
   color: rgba(255, 255, 255, 0.9);
 }
+.view-cart {
+  text-align: right;
+  font-size: 10px;
+  color: #008bdb;
+}
+.view-cart:hover,
+.view-cart:focus {
+  color: #005a8f;
+}
 @media (max-width: 543px) {
   .hidden-xs-down {
     display: none !important;

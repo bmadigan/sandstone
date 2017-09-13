@@ -49,24 +49,25 @@
 
 <script>
     import Spinner      from 'vue-simple-spinner'
+    import axios        from 'axios'
 
     export default {
         components: { Spinner },
 
         data() {
             return {
-                contracts:  '',
-                isLoading:  false,
-                searchQuery:   '',
+                contracts:      '',
+                isLoading:      false,
+                searchQuery:    '',
                 pagination: {
-                    currentPage: 1,
-                    totalRecords: 0,
-                    perPage: 10,
-                    lastPage: 1,
-                    nextLink: '',
-                    prevLink: ''
+                    currentPage:    1,
+                    totalRecords:   0,
+                    perPage:        10,
+                    lastPage:       1,
+                    nextLink:       '',
+                    prevLink:       ''
                 },
-                cursorCss: 'cursor'
+                cursorCss:      'cursor'
             }
         },
 

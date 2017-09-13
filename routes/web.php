@@ -11,6 +11,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Default view for the Shopping Cart
+Route::get('/cart', 'CartController@show')->name('cart.show');
+
 /*
 |--------------------------------------------------------------------------
 | Logged in User Web routes
@@ -55,4 +58,11 @@ Route::group(['namespace' => 'Api', 'middleware' => 'auth'], function() {
     Route::get('/api/contracts',                'ContractsController@index')->name('contracts.api.index');
     Route::get('/api/contracts/{id}',           'ContractsController@show')->name('contracts.api.show');
 
+    Route::get('/api/products',                 'ProductsController@index')->name('products.api.index');
+    Route::get('/api/products/{id}',            'ProductsController@show')->name('products.api.show');
+
+    Route::post('/api/cart/add/{productId}',    'CartController@store')->name('cart.api.add');
+    Route::get('/api/cart',                     'CartController@show')->name('cart.api.get');
+    //Route::post('/api/cart/empty',            'CartController@store')->name('cart.api.add');
+    Route::post('/api/cart/remove/{rowId}',     'CartController@destroy')->name('cart.api.destroy');
 });
