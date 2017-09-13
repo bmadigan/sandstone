@@ -63,6 +63,7 @@ Route::group(['namespace' => 'Api', 'middleware' => 'auth'], function() {
 
     Route::post('/api/cart/add/{productId}',    'CartController@store')->name('cart.api.add');
     Route::get('/api/cart',                     'CartController@show')->name('cart.api.get');
-    //Route::post('/api/cart/empty',            'CartController@store')->name('cart.api.add');
     Route::post('/api/cart/remove/{rowId}',     'CartController@destroy')->name('cart.api.destroy');
+
+    Route::post('/api/checkout',                'CheckoutController@store')->name('checkout.api.store');
 });

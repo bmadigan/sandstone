@@ -22,15 +22,17 @@
 
         <div class="item-card right">
             <h3>Total Due: {{ calculateTotal | currency }}</h3>
+            <cart-checkout :amount="calculateTotal"></cart-checkout>
         </div>
     </div>
 </template>
 <script>
-    import Spinner      from 'vue-simple-spinner'
-    import axios        from 'axios'
+    import Spinner          from 'vue-simple-spinner'
+    import axios            from 'axios'
+    import CartCheckout     from './CartCheckout'
 
     export default {
-        components: { Spinner },
+        components: { Spinner, CartCheckout },
 
         data() {
             return {

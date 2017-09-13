@@ -1113,6 +1113,7 @@ Vue.component('flash', __webpack_require__(58));
 Vue.component('ContractList', __webpack_require__(50));
 Vue.component('ProductListings', __webpack_require__(75));
 Vue.component('ShoppingCart', __webpack_require__(82));
+Vue.component('CartCheckout', __webpack_require__(90));
 
 Vue.filter('currency', function (value) {
     return '$' + (value / 100).toFixed(2);
@@ -43721,6 +43722,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_simple_spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_simple_spinner__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CartCheckout__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CartCheckout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__CartCheckout__);
 //
 //
 //
@@ -43748,12 +43751,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { Spinner: __WEBPACK_IMPORTED_MODULE_0_vue_simple_spinner___default.a },
+    components: { Spinner: __WEBPACK_IMPORTED_MODULE_0_vue_simple_spinner___default.a, CartCheckout: __WEBPACK_IMPORTED_MODULE_2__CartCheckout___default.a },
 
     data: function data() {
         return {
@@ -43845,13 +43850,180 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })])])])])])])
   }), _vm._v(" "), _c('div', {
     staticClass: "item-card right"
-  }, [_c('h3', [_vm._v("Total Due: " + _vm._s(_vm._f("currency")(_vm.calculateTotal)))])])], 2)
+  }, [_c('h3', [_vm._v("Total Due: " + _vm._s(_vm._f("currency")(_vm.calculateTotal)))]), _vm._v(" "), _c('cart-checkout', {
+    attrs: {
+      "amount": _vm.calculateTotal
+    }
+  })], 1)], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-276f3a96", module.exports)
+  }
+}
+
+/***/ }),
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(91),
+  /* template */
+  __webpack_require__(92),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/brad/Dropbox/Code/PILASTER/Sandstone/resources/assets/js/components/Modules/Cart/CartCheckout.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] CartCheckout.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-47163b74", Component.options)
+  } else {
+    hotAPI.reload("data-v-47163b74", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 91 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_simple_spinner__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_simple_spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_simple_spinner__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Spinner: __WEBPACK_IMPORTED_MODULE_0_vue_simple_spinner___default.a },
+    props: ['amount'],
+    data: function data() {
+        return {
+            stripeHandler: null,
+            isLoading: false
+        };
+    },
+
+    computed: {
+        description: function description() {
+            return 'Payment for ' + this.productName;
+        },
+        totalPrice: function totalPrice() {
+            return this.amount;
+        },
+        priceInDollars: function priceInDollars() {
+            return (this.amount / 100).toFixed(2);
+        },
+        totalPriceInDollars: function totalPriceInDollars() {
+            return (this.totalPrice / 100).toFixed(2);
+        }
+    },
+    methods: {
+        initStripe: function initStripe() {
+            var handler = StripeCheckout.configure({
+                key: App.stripePublicKey
+            });
+            window.addEventListener('popstate', function () {
+                handler.close();
+            });
+            return handler;
+        },
+        openStripe: function openStripe(callback) {
+            this.stripeHandler.open({
+                name: 'Pilaster Storefront',
+                description: 'Checkout',
+                currency: "usd",
+                allowRememberMe: false,
+                panelLabel: 'Pay {{amount}}',
+                amount: this.totalPrice,
+                image: '/images/checkout-icon.png',
+                token: this.makePayment
+            });
+        },
+        makePayment: function makePayment(token) {
+            var _this = this;
+
+            this.isLoading = true;
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/checkout', {
+                email: token.email,
+                payment_token: token.id,
+                client_ip: token.client_ip,
+                cc_last_4: token.card.last4,
+                cc_brand: token.card.brand
+            }).then(function (response) {
+                //window.location.href="/cart/invoice/" + response.data.orderId;
+            }).catch(function (response) {
+                console.log('Error: ' + response);
+                _this.isLoading = false;
+            });
+        }
+    },
+    created: function created() {
+        this.stripeHandler = this.initStripe();
+    }
+});
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "constrain-sm mx-auto"
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
+    class: {
+      'btn-loading': _vm.isLoading
+    },
+    attrs: {
+      "disabled": _vm.isLoading
+    },
+    on: {
+      "click": _vm.openStripe
+    }
+  }, [_vm._v("CHECKOUT")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-47163b74", module.exports)
   }
 }
 

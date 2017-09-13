@@ -10,7 +10,8 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script>
-            window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token()]); ?>
+            window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token()]); ?>;
+            window.App = { stripePublicKey: '{{ config('services.stripe.key') }}' };
         </script>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" rel="stylesheet">
@@ -51,6 +52,7 @@
 
         </div><!--/full-height #app -->
 
+        <script src="https://checkout.stripe.com/checkout.js"></script>
         <flash message="{{ session('flash') }}" css="{{ session('css') }}"></flash>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
