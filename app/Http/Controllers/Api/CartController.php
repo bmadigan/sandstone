@@ -26,11 +26,17 @@ class CartController extends Controller
         return response()->json(['message' => 'successful'], 201);
     }
 
-    public function destroy($rowId)
+    public function remove($rowId)
     {
         Cart::remove($rowId);
 
         return response()->json(['message' => 'removed'], 201);
     }
 
+    public function destroy()
+    {
+        Cart::destroy();
+
+        return response()->json(['message' => 'cancelled order'], 201);
+    }
 }

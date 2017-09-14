@@ -23,6 +23,7 @@
         <div class="item-card right">
             <h3>Total Due: {{ calculateTotal | currency }}</h3>
             <cart-checkout :amount="calculateTotal"></cart-checkout>
+            <span class="p-xs-l-3"><a href="#" @click="cancelOrder">Cancel</a></span>
         </div>
     </div>
 </template>
@@ -57,6 +58,17 @@
             removeItem(product) {
                 this.startSpinner();
                 axios.post('/api/cart/remove/' + product.rowId)
+                    .then(response => {
+                        this.fetchItems();
+                        this.stopSpinner();
+                    }).catch(error => {
+                        console.log(error.message);
+                        this.stopSpinner();
+                    });
+            },
+            cancelOrder() {
+                this.startSpinner();
+                axios.post('/api/cart/cancel')
                     .then(response => {
                         this.fetchItems();
                         this.stopSpinner();

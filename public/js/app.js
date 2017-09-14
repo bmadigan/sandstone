@@ -43761,6 +43761,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -43801,6 +43802,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (error) {
                 console.log(error.message);
                 _this2.stopSpinner();
+            });
+        },
+        cancelOrder: function cancelOrder() {
+            var _this3 = this;
+
+            this.startSpinner();
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/cart/cancel').then(function (response) {
+                _this3.fetchItems();
+                _this3.stopSpinner();
+            }).catch(function (error) {
+                console.log(error.message);
+                _this3.stopSpinner();
             });
         },
 
@@ -43983,7 +43996,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "amount": _vm.calculateTotal
     }
-  })], 1)], 2)
+  }), _vm._v(" "), _c('span', {
+    staticClass: "p-xs-l-3"
+  }, [_c('a', {
+    attrs: {
+      "href": "#"
+    },
+    on: {
+      "click": _vm.cancelOrder
+    }
+  }, [_vm._v("Cancel")])])], 1)], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

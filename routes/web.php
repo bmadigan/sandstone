@@ -13,6 +13,8 @@ Route::get('/', function () {
 
 // Default view for the Shopping Cart
 Route::get('/cart', 'Web\CartController@show')->name('cart.show');
+// Order / Purchase Invoice
+Route::get('/cart/invoice/{order_number}',  'Web\InvoiceController@show')->name('invoice.show');
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +81,8 @@ Route::group(['namespace' => 'Api'], function() {
 
     Route::post('/api/cart/add/{productId}',    'CartController@store')->name('cart.api.add');
     Route::get('/api/cart',                     'CartController@show')->name('cart.api.get');
-    Route::post('/api/cart/remove/{rowId}',     'CartController@destroy')->name('cart.api.destroy');
+    Route::post('/api/cart/remove/{rowId}',     'CartController@destroy')->name('cart.api.remove');
+    Route::post('/api/cart/cancel',             'CartController@destroy')->name('cart.api.destroy');
 
     Route::post('/api/checkout',                'CheckoutController@store')->name('checkout.api.store');
 });
