@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
 use Laravel\Cashier\Billable;
 use Illuminate\Database\Eloquent\Model;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -31,10 +32,10 @@ class Customer extends Model
             'client_ip'         => $request->client_ip,
             'cc_last_4'         => $request->cc_last_4,
             'cc_brand'          => $request->cc_brand,
-            'total_paid'        => Cart::total()
+            'total_paid'        => convertCurrencyToCents(Cart::total())
         ]);
 
-        foreach($cart as $cartItems) {
+        foreach($cartItems as $cart) {
             // Add Order Item record
             OrderItem::create([
                 'order_id'      => $order->id,
