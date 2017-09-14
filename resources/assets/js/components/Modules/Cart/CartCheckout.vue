@@ -1,5 +1,5 @@
 <template>
-    <div class="constrain-sm mx-auto">
+    <div class="mx-auto m-xs-t-2" v-if="amount > 0">
         <button class="btn btn-primary"
                 @click="openStripe"
                 :class="{ 'btn-loading': isLoading }"

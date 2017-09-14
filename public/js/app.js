@@ -43919,8 +43919,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "constrain-sm mx-auto"
+  return (_vm.amount > 0) ? _c('div', {
+    staticClass: "mx-auto m-xs-t-2"
   }, [_c('button', {
     staticClass: "btn btn-primary",
     class: {
@@ -43932,7 +43932,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.openStripe
     }
-  }, [_vm._v("CHECKOUT")])])
+  }, [_vm._v("CHECKOUT")])]) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
