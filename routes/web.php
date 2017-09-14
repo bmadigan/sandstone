@@ -50,7 +50,7 @@ Route::group(['namespace' => 'Web', 'middleware' => 'auth'], function() {
 
 /*
 |--------------------------------------------------------------------------
-| Standard Vue API Calls
+| Standard Authenticated - Vue API Calls
 |--------------------------------------------------------------------------
 */
 Route::group(['namespace' => 'Api', 'middleware' => 'auth'], function() {
@@ -58,6 +58,22 @@ Route::group(['namespace' => 'Api', 'middleware' => 'auth'], function() {
     Route::get('/api/contracts',                'ContractsController@index')->name('contracts.api.index');
     Route::get('/api/contracts/{id}',           'ContractsController@show')->name('contracts.api.show');
 
+    Route::get('/api/products',                 'ProductsController@index')->name('products.api.index');
+    Route::get('/api/products/{id}',            'ProductsController@show')->name('products.api.show');
+
+    Route::post('/api/cart/add/{productId}',    'CartController@store')->name('cart.api.add');
+    Route::get('/api/cart',                     'CartController@show')->name('cart.api.get');
+    Route::post('/api/cart/remove/{rowId}',     'CartController@destroy')->name('cart.api.destroy');
+
+    Route::post('/api/checkout',                'CheckoutController@store')->name('checkout.api.store');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Standard Public Vue API Calls
+|--------------------------------------------------------------------------
+*/
+Route::group(['namespace' => 'Api'], function() {
     Route::get('/api/products',                 'ProductsController@index')->name('products.api.index');
     Route::get('/api/products/{id}',            'ProductsController@show')->name('products.api.show');
 
