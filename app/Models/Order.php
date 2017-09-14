@@ -13,6 +13,11 @@ class Order extends Model
      */
     protected $guarded = ['id'];
 
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
     public static function generateOrderNumber($length = 24)
     {
         return substr(str_shuffle(str_repeat($x='023456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);

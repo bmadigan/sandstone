@@ -30,9 +30,27 @@ class SetupTableSeeder extends Seeder
                 });
             });
 
-
             // Create associated Products
             factory(App\Models\Product::class, rand(5, 20))->create(['user_id' => $user->id]);
+
+            // Create some Customers with Orders
+            factory(App\Models\Customer::class, rand(10, 25))->create();
+            $customers = App\Models\Customer::all();
+
+            $customers->map(function($customer) {
+                $orders = factory(App\Models\Order::class, rand(1, 3))->create([
+                    'customer_id' => $customer->id
+                ]);
+                $orders->map(function($order) {
+                    $product = App\Models\Product::inRandomOrder()->first();
+                    factory(App\Models\OrderItem::class)->create([
+                        'order_id'      => $order->id,
+                        'product_id'    => $product->id,
+                        'product_name'  => $product->product_name,
+                        'product_price' => $product->price
+                    ]);
+                });
+            });
         });
 
     }

@@ -36,8 +36,15 @@ class Customer extends Model
 
         foreach($cart as $cartItems) {
             // Add Order Item record
-
+            OrderItem::create([
+                'order_id'      => $order->id,
+                'product_id'    => $cart->id,
+                'product_name'  => $cart->name,
+                'product_price' => $cart->price,
+                'quantity'      => $cart->qty
+            ]);
         }
 
+        return $order;
     }
 }
