@@ -12,7 +12,7 @@ Route::get('/', function () {
 });
 
 // Default view for the Shopping Cart
-Route::get('/cart', 'CartController@show')->name('cart.show');
+Route::get('/cart', 'Web\CartController@show')->name('cart.show');
 
 /*
 |--------------------------------------------------------------------------
