@@ -38,11 +38,12 @@ class SetupTableSeeder extends Seeder
             $customers = App\Models\Customer::all();
 
             $customers->map(function($customer) {
+                $product = App\Models\Product::inRandomOrder()->first();
                 $orders = factory(App\Models\Order::class, rand(1, 3))->create([
-                    'customer_id' => $customer->id
+                    'customer_id'   => $customer->id,
+                    'user_id'       => $product->user_id
                 ]);
-                $orders->map(function($order) {
-                    $product = App\Models\Product::inRandomOrder()->first();
+                $orders->map(function($order) use ($product) {
                     factory(App\Models\OrderItem::class)->create([
                         'order_id'      => $order->id,
                         'product_id'    => $product->id,

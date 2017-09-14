@@ -66,4 +66,39 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getRecentOrders()
+    {
+        return $this->orders()
+                    ->with('items')
+                    ->with('customer')
+                    ->latest()
+                    ->take(10)
+                    ->get();
+    }
+
+    public function totalCustomers()
+    {
+         return rand(5, 100);
+    }
+
+    public function totalProductsSold()
+    {
+        return $this->products->count();
+    }
+
+    public function getTotalRevenue()
+    {
+        return formatAsCurrency($this->calculateTotalRevenue());
+    }
+
+    public function calculateTotalRevenue()
+    {
+        return rand(10000, 999999);
+    }
 }

@@ -6,6 +6,7 @@ $factory->define(App\Models\Order::class, function (Faker $faker) {
 
     return [
         'customer_id'       => 1,
+        'user_id'           => 1,
         'order_number'      => str_random(),
         'customer_email'    => $faker->email,
         'payment_token'     => 'TOK-' . str_random(),
