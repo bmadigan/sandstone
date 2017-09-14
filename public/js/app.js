@@ -43902,7 +43902,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 cc_last_4: token.card.last4,
                 cc_brand: token.card.brand
             }).then(function (response) {
-                //window.location.href="/cart/invoice/" + response.data.orderId;
+                window.location.href = "/cart/invoice/" + response.data.orderId;
             }).catch(function (response) {
                 console.log('Error: ' + response);
                 _this.isLoading = false;
