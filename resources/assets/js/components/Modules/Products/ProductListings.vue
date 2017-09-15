@@ -2,13 +2,17 @@
     <div>
         <vue-simple-spinner message="Loading..." v-if="isLoading"></vue-simple-spinner>
 
-        <div v-for="product in products">
-            <div class="card">
-                <h3>{{ product.name }}</h3>
-                <p>Price: {{ product.price_display }}</p>
-                <button class="btn btn-secondary" @click="addToCart(product)">Add To Card</button>
+        <div class="flex-container">
+            <div v-for="product in products">
+                <div class="list-item">
+                    <div class="card">
+                        <h3>{{ product.name }}</h3>
+                        <p>Price: {{ product.price_display }}</p>
+                        <button class="btn btn-secondary" @click="addToCart(product)">Add To Card</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div><!--/flex-container-->
     </div>
 </template>
 <script>
@@ -67,5 +71,15 @@
 .card {
     border: 1px solid #f9f9f9;
     padding:15px;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.list-item {
+    width: 350px;
+    margin: auto;
 }
 </style>
