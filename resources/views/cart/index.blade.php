@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-section">
                             <h2 class="m-xs-b-2">
-                                Your Cart
+                                Your Cart (Sample VueJS Cart)
                                 <a href="{{ url('/') }}" class="view-cart">Continue Shopping</a>
                             </h2>
 

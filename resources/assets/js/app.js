@@ -13,9 +13,15 @@ Vue.component('ContractList',       require('./components/Modules/Contracts/Cont
 Vue.component('ProductListings',    require('./components/Modules/Products/ProductListings.vue'));
 Vue.component('ShoppingCart',       require('./components/Modules/Cart/ShoppingCart.vue'));
 Vue.component('CartCheckout',       require('./components/Modules/Cart/CartCheckout.vue'));
+Vue.component('Dashboard',          require('./components/Modules/Dashboard/Dashboard.vue'));
 
 Vue.filter('currency', (value) => {
     return '$' + (value / 100).toFixed(2);
+})
+
+var moment = require('moment');
+Vue.filter('shortDate', (date) => {
+    return moment(date).format('MMM DD, YYYY');
 })
 
 const app = new Vue({

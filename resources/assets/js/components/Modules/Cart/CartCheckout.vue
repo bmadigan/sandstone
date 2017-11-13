@@ -67,7 +67,13 @@
                     cc_last_4: token.card.last4,
                     cc_brand: token.card.brand
                 }).then(response => {
+                    Echo.private(`order.${response.data.orderId}`)
+                        .listen('OrderCreated', (e) => {
+                            console.log(e.update);
+                        });
+
                     window.location.href="/cart/invoice/" + response.data.orderId;
+
                 }).catch(response => {
                     console.log('Error: ' + response);
                     this.isLoading = false

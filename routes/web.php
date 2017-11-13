@@ -68,6 +68,10 @@ Route::group(['namespace' => 'Api', 'middleware' => 'auth'], function() {
     Route::post('/api/cart/remove/{rowId}',     'CartController@destroy')->name('cart.api.destroy');
 
     Route::post('/api/checkout',                'CheckoutController@store')->name('checkout.api.store');
+
+    // Dashboard Vue Component
+    Route::get('/api/orders/recent',            'DashboardController@recentOrders')->name('orders.api.recent.orders');
+    Route::get('/api/customers/total',          'DashboardController@totalCustomers')->name('orders.api.total.customers');
 });
 
 /*

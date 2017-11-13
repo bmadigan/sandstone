@@ -57,6 +57,7 @@
             },
             removeItem(product) {
                 this.startSpinner();
+                console.log('PID: ' + product.rowId);
                 axios.post('/api/cart/remove/' + product.rowId)
                     .then(response => {
                         this.fetchItems();

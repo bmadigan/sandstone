@@ -20,7 +20,7 @@ class CartController extends Controller
     public function store(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-
+        Cart::store('123');
         Cart::add($product->id, $product->product_name, 1, $product->price);
 
         return response()->json(['message' => 'successful'], 201);

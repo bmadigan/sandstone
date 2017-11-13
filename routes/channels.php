@@ -14,3 +14,8 @@
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+// New Order Created
+Broadcast::channel('order.{id}', function ($order, $id) {
+    return (int) $order->id === (int) $id;
+});

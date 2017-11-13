@@ -17,6 +17,8 @@ class CheckoutController extends Controller
 
         $order = $customer->createNewOrder($request);
 
+        event(new OrderCompleted($order));
+
         // destroy cart
         Cart::destroy();
 
