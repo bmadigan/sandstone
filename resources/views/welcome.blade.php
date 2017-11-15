@@ -14,6 +14,7 @@
                             <p class="text-welcome">This is a sample boilerplate Laravel 5.5 application that creates several modules that you can
                             easily integrate into a new project. The application comes with an <a href="{{ url('/dashboard') }}">Admin Backend</a> that you can log into using 'test@example.com' with a password of 'secret123'</p>
                             <p class="text-welcome">Below is a Sample <em>Ecommerce</em> Shopping Cart using a VueJS custom Component</p>
+                            <h4>Shopping Cart is currently broke where it removes all cart items. Still a WIP.</h4>
                         </div>
                     </div>
                 </div><!--/row-->
